@@ -1,0 +1,147 @@
+.bracket-tournament {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 40px;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.bracket-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin: 0 auto;
+  min-width: fit-content;
+}
+
+.match {
+  display: flex;
+  flex-direction: column;
+  background: #1f2937;
+  border: 2px solid #6366f1;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 140px;
+  position: relative;
+}
+
+.player {
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  background: #374151;
+  margin: 4px 0;
+  border-radius: 4px;
+}
+
+.node {
+  text-align: center;
+  border: 2px solid #6366f1;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #2d3748;
+  color: #fff;
+  width: 120px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.node:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.node div {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background-color: #374151;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.winner {
+  color: #48bb78; /* green */
+  font-weight: bold;
+}
+
+.loser {
+  color: #f87171; /* red */
+  opacity: 0.7;
+}
+
+.waiting {
+  color: #aaa;
+  font-style: italic;
+}
+
+.node-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+}
+
+.branch {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  position: relative;
+}
+
+.branch::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  height: 24px;
+  width: 4px;
+  background-color: #555;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.branch > .node-wrapper {
+  position: relative;
+}
+
+.branch > .node-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  width: 2px;
+  height: 20px;
+  background-color: #555;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.branch > .node-wrapper:first-child::after,
+.branch > .node-wrapper:last-child::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  width: 50%;
+  height: 2px;
+  background-color: #555;
+}
+
+.branch > .node-wrapper:first-child::after {
+  left: 50%;
+}
+
+.branch > .node-wrapper:last-child::after {
+  right: 50%;
+}

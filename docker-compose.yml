@@ -1,0 +1,42 @@
+name: Transcendance
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    build:
+      context: ./nginx
+      args:
+        DOMAIN_NAME: ${DOMAIN_NAME}
+        SSL_KEY_PATH: ${SSL_KEY_PATH}
+        SSL_CERT_PATH: ${SSL_CERT_PATH}
+    ports:
+      - "8080:80"
+      - "${PORT}:443"
+    volumes:
+      - ./frontend:/var/www/html:ro
+    networks:
+      - transcendance
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    image: backend
+    build: ./backend
+    volumes:
+      - ./db:$DB_DIR
+      - ./backend/app:/var/app
+      - ./frontend:/var/www/html
+      - ./blockchain/artifacts/:/var/app/artifacts
+    networks:
+      - transcendance
+    env_file:
+      - .env
+
+networks:
+  transcendance:
+    name: transcendance
+    driver: bridge

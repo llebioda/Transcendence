@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "./styles/sidebar.css";
+@import "./styles/google.css";
+@import "./styles/tournaments.css";
+@import "./styles/toastNotification.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: auto;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+#skinSelectorCanvas {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  width: 50vw;
+  height: auto;
+  z-index: 50;
+  display: block;
+}
+
+.pie-chart {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.pie-chart::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

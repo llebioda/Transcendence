@@ -1,0 +1,33 @@
+# Ignore node_modules
+node_modules
+**/node_modules
+
+# Ignore package-lock.json
+package-lock.json
+**/package-lock.json
+
+# Ignore backend compilated file
+dist
+**/dist
+
+# Ignore frontend compilated file
+frontend/public/output.css
+frontend/public/**/*.js
+frontend/src/shared
+
+# Ignore the database
+db/
+
+# Ignore environment files
+.env
+
+# Ignore blockchain files
+artifacts/
+cache/
+typechain/
+typechain-types/
+
+# others
+.vscode
+logs/
+*.log
